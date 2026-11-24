@@ -167,3 +167,4 @@ Login di `https://domainkamu.com/admin/login`, lalu buka **Migrasi dan server**.
 - [ ] `install.sql` dan `admin.sql` tidak ada di hosting
 - [ ] Mesin pencari diizinkan, sitemap terbaca
 - [ ] Backup pertama sudah diambil
+
