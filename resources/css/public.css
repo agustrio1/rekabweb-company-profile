@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --c-ink: 20 24 31;
+    --c-paper: 246 243 238;
+    --c-surface: 255 255 255;
+    --c-line: 221 215 204;
+    --c-muted: 94 100 112;
+    --c-accent: 180 83 42;
+    --c-deep: 31 58 52;
+  }
+
+  html {
+    @apply font-sans antialiased;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper text-ink;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-serif text-ink;
+  }
+
+  [x-cloak] {
+    display: none !important;
+  }
+
+  ::selection {
+    background: rgb(var(--c-accent) / 0.2);
+  }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--c-accent));
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .wrap {
+    @apply mx-auto w-full max-w-site px-5 md:px-10;
+  }
+
+  .eyebrow {
+    @apply text-sm font-medium uppercase tracking-widest text-muted;
+  }
+
+  .btn {
+    @apply inline-flex min-h-[2.75rem] items-center justify-center gap-2 whitespace-nowrap rounded px-6 py-3 text-base font-medium transition-colors;
+  }
+
+  .btn-sm {
+    @apply min-h-0 px-4 py-2 text-[0.95rem];
+  }
+
+  .btn-primary {
+    @apply bg-accent text-white hover:bg-ink;
+  }
+
+  .btn-outline {
+    @apply border border-ink text-ink hover:bg-ink hover:text-paper;
+  }
+
+  /* Formulir publik */
+  .field-label {
+    @apply text-[0.95rem] font-medium;
+  }
+
+  .field {
+    @apply block min-h-[2.75rem] w-full rounded border border-line bg-surface px-4 py-3 text-base text-ink placeholder:text-muted/70 focus:border-ink focus:outline-none focus:ring-2 focus:ring-accent/40;
+  }
+
+  .field-invalid {
+    @apply border-accent;
+  }
+
+  .field-error {
+    @apply text-sm font-medium text-accent;
+  }
+}
+
+/* Isi konten dari editor (halaman, layanan, proyek, artikel). Di luar @layer supaya tidak ikut terhapus. */
+.rich-prose {
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+.rich-prose > * + * {
+  margin-top: 1.1em;
+}
+.rich-prose h2 { font-size: 1.75rem; font-weight: 600; line-height: 1.25; margin-top: 2em; }
+.rich-prose h3 { font-size: 1.375rem; font-weight: 600; line-height: 1.3; margin-top: 1.7em; }
+.rich-prose h4 { font-size: 1.125rem; font-weight: 600; line-height: 1.4; margin-top: 1.5em; }
+.rich-prose ul { list-style: disc; padding-left: 1.5rem; }
+.rich-prose ol { list-style: decimal; padding-left: 1.5rem; }
+.rich-prose li + li { margin-top: 0.3em; }
+.rich-prose li > p { margin: 0; }
+.rich-prose blockquote {
+  border-left: 3px solid rgb(var(--c-accent));
+  padding-left: 1.25rem;
+  font-family: 'Newsreader Variable', Georgia, serif;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+.rich-prose a { color: rgb(var(--c-accent)); text-decoration: underline; text-underline-offset: 3px; }
+.rich-prose img { max-width: 100%; height: auto; border-radius: 4px; }
+.rich-prose hr { border: 0; border-top: 1px solid rgb(var(--c-line)); margin: 2em 0; }
+.rich-prose table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-size: 0.95em;
+}
+.rich-prose th,
+.rich-prose td {
+  min-width: 6rem;
+  padding: 0.6rem 0.85rem;
+  border: 1px solid rgb(var(--c-line));
+  text-align: left;
+  vertical-align: top;
+}
+.rich-prose th { background: rgb(var(--c-surface)); font-weight: 600; }
+.rich-prose td > p,
+.rich-prose th > p { margin: 0; }

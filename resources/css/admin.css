@@ -1,0 +1,262 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --c-ink: 20 24 31;
+    --c-paper: 246 243 238;
+    --c-surface: 255 255 255;
+    --c-line: 221 215 204;
+    --c-muted: 94 100 112;
+    --c-accent: 180 83 42;
+    --c-deep: 31 58 52;
+  }
+
+  html {
+    @apply font-sans antialiased;
+  }
+
+  body {
+    @apply text-ink;
+    background: #f4f5f7;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  [x-cloak] {
+    display: none !important;
+  }
+
+  ::selection {
+    background: rgb(var(--c-accent) / 0.2);
+  }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--c-accent));
+    outline-offset: 2px;
+  }
+}
+
+/* Komponen gaya shadcn/ui (warna tetap memakai palet proyek) */
+@layer components {
+  .card {
+    @apply rounded-xl border border-line bg-surface text-ink shadow-sm;
+  }
+  .card-header {
+    @apply flex flex-col gap-1.5 p-6;
+  }
+  .card-title {
+    @apply font-semibold leading-none tracking-tight;
+  }
+  .card-description {
+    @apply text-sm text-muted;
+  }
+  .card-content {
+    @apply p-6 pt-0;
+  }
+
+  .label {
+    @apply text-sm font-medium leading-none;
+  }
+  .input {
+    @apply flex h-10 w-full rounded-md border border-line bg-surface px-3 py-2 text-sm shadow-sm placeholder:text-muted/70
+      focus-visible:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40
+      disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+    .textarea {
+    @apply flex min-h-[80px] w-full rounded-md border border-line bg-surface px-3 py-2 text-sm shadow-sm placeholder:text-muted/70
+      focus-visible:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40
+      disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn {
+    @apply inline-flex h-10 items-center justify-center gap-2 whitespace-nowrap rounded-md px-4 py-2 text-sm font-medium
+      transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40
+      focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply bg-accent text-white shadow-sm hover:bg-ink;
+  }
+  .btn-outline {
+    @apply border border-line bg-surface text-ink shadow-sm hover:bg-paper;
+  }
+  .btn-ghost {
+    @apply text-ink hover:bg-paper;
+  }
+  .btn-sm {
+    @apply h-9 px-3;
+  }
+  .btn-icon {
+    @apply h-9 w-9 p-0;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-md border px-2 py-0.5 text-xs font-medium;
+  }
+  .badge-success {
+    @apply border-green-300 bg-green-50 text-green-800;
+  }
+  .badge-danger {
+    @apply border-red-300 bg-red-50 text-red-800;
+  }
+
+  .separator-v {
+    @apply h-4 w-px bg-line;
+  }
+}
+
+/* Editor teks kaya (PHASE 6C) */
+[hidden] {
+  display: none !important;
+}
+
+.rich-editor {
+  overflow: hidden;
+  border: 1px solid rgb(var(--c-line));
+  border-radius: 0.75rem;
+  background: rgb(var(--c-surface));
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
+}
+.rich-editor:focus-within {
+  border-color: rgb(var(--c-accent));
+  box-shadow: 0 0 0 2px rgb(var(--c-accent) / 0.3);
+}
+
+.rich-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.5rem;
+  border-bottom: 1px solid rgb(var(--c-line));
+  background: rgb(var(--c-paper) / 0.6);
+}
+.rich-toolbar:empty,
+.rich-content:empty {
+  display: none;
+}
+.rich-toolbar-sub {
+  background: rgb(var(--c-surface));
+}
+
+.rich-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  height: 2rem;
+  min-width: 2rem;
+  padding: 0 0.5rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgb(var(--c-ink));
+  transition: background-color 0.15s;
+}
+.rich-btn:hover {
+  background: rgb(var(--c-paper));
+}
+.rich-btn[aria-pressed='true'] {
+  background: rgb(var(--c-ink));
+  color: #fff;
+}
+.rich-btn:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+.rich-btn:focus-visible,
+.rich-select:focus-visible {
+  outline: 2px solid rgb(var(--c-accent));
+  outline-offset: 1px;
+}
+.rich-btn-end {
+  margin-left: auto;
+}
+.rich-btn-text {
+  display: none;
+}
+@media (min-width: 640px) {
+  .rich-btn-text {
+    display: inline;
+  }
+}
+
+.rich-sep {
+  width: 1px;
+  height: 1.25rem;
+  margin: 0 0.25rem;
+  background: rgb(var(--c-line));
+}
+
+.rich-select {
+  height: 2rem;
+  padding: 0 0.5rem;
+  border: 1px solid rgb(var(--c-line));
+  border-radius: 0.375rem;
+  background: rgb(var(--c-surface));
+  font-size: 0.875rem;
+}
+
+.rich-content .ProseMirror {
+  min-height: 18rem;
+  max-height: 70vh;
+  overflow-y: auto;
+  padding: 1rem;
+  outline: none;
+}
+.rich-content.is-preview .ProseMirror {
+  background: rgb(var(--c-paper) / 0.4);
+}
+
+/* Tipografi isi konten (editor, pratinjau, dan hasil sanitasi) */
+.rich-prose {
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.rich-prose > * + * {
+  margin-top: 0.9em;
+}
+.rich-prose h2 { font-size: 1.5rem; font-weight: 600; line-height: 1.3; margin-top: 1.6em; }
+.rich-prose h3 { font-size: 1.25rem; font-weight: 600; line-height: 1.35; margin-top: 1.4em; }
+.rich-prose h4 { font-size: 1.05rem; font-weight: 600; line-height: 1.4; margin-top: 1.2em; }
+.rich-prose ul { list-style: disc; padding-left: 1.5rem; }
+.rich-prose ol { list-style: decimal; padding-left: 1.5rem; }
+.rich-prose li + li { margin-top: 0.25em; }
+.rich-prose li > p { margin: 0; }
+.rich-prose blockquote {
+  border-left: 3px solid rgb(var(--c-accent));
+  padding-left: 1rem;
+  color: rgb(var(--c-muted));
+}
+.rich-prose a { color: rgb(var(--c-accent)); text-decoration: underline; }
+.rich-prose img { max-width: 100%; height: auto; border-radius: 0.5rem; }
+.rich-prose img.ProseMirror-selectednode { outline: 2px solid rgb(var(--c-accent)); }
+.rich-prose hr { border: 0; border-top: 1px solid rgb(var(--c-line)); margin: 1.5em 0; }
+.rich-prose table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-size: 0.95em;
+}
+.rich-prose th,
+.rich-prose td {
+  min-width: 5rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid rgb(var(--c-line));
+  text-align: left;
+  vertical-align: top;
+}
+.rich-prose th { background: rgb(var(--c-paper)); font-weight: 600; }
+.rich-prose td > p,
+.rich-prose th > p { margin: 0; }
+.rich-prose .selectedCell { background: rgb(var(--c-accent) / 0.12); }
+
+.rich-content .ProseMirror h2,
+.rich-prose h2 { font-size: 1.5rem; font-weight: 700; line-height: 1.3; }
+.rich-content .ProseMirror h3,
+.rich-prose h3 { font-size: 1.25rem; font-weight: 700; line-height: 1.35; }
+.rich-content .ProseMirror h4,
+.rich-prose h4 { font-size: 1.05rem; font-weight: 700; line-height: 1.4; }

@@ -1,0 +1,32 @@
+DirectoryIndex index.php
+Options -Indexes -MultiViews
+
+# Kompresi teks
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml application/xml application/javascript application/json image/svg+xml
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Penanda cache aset (dipakai blok mod_headers di bawah)
+    RewriteRule ^assets/ - [E=CACHE_ASSETS:1]
+    RewriteRule ^uploads/ - [E=CACHE_UPLOADS:1]
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+# Header ini hanya berlaku untuk respons sukses, jadi 404 tidak ikut tersimpan di cache
+<IfModule mod_headers.c>
+    # Nama file hasil build memuat hash isi, aman disimpan setahun
+    Header set Cache-Control "public, max-age=31536000, immutable" env=CACHE_ASSETS
+    # Nama file upload acak dan tidak pernah ditimpa
+    Header set Cache-Control "public, max-age=2592000" env=CACHE_UPLOADS
+</IfModule>
+
+# Blok akses ke file tersembunyi (.env, .git, dll)
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>

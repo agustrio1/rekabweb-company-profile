@@ -1,0 +1,80 @@
+{
+  "_htmx.esm-!~{004}~.js": {
+    "file": "htmx-yluIpS_j.css",
+    "src": "_htmx.esm-!~{004}~.js"
+  },
+  "_htmx.esm-CrZenodz.js": {
+    "file": "htmx.esm-CrZenodz.js",
+    "name": "htmx.esm",
+    "css": [
+      "htmx-yluIpS_j.css"
+    ],
+    "assets": [
+      "public-sans-vietnamese-wght-normal-CtlIRbEm.woff2",
+      "public-sans-latin-ext-wght-normal-MQgHevqp.woff2",
+      "public-sans-latin-wght-normal-DdeTHZLK.woff2"
+    ]
+  },
+  "node_modules/@fontsource-variable/newsreader/files/newsreader-latin-ext-wght-normal.woff2": {
+    "file": "newsreader-latin-ext-wght-normal-C-3rgBeH.woff2",
+    "src": "node_modules/@fontsource-variable/newsreader/files/newsreader-latin-ext-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/newsreader/files/newsreader-latin-wght-normal.woff2": {
+    "file": "newsreader-latin-wght-normal-CCVVNp6i.woff2",
+    "src": "node_modules/@fontsource-variable/newsreader/files/newsreader-latin-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/newsreader/files/newsreader-vietnamese-wght-normal.woff2": {
+    "file": "newsreader-vietnamese-wght-normal-Czsa-EzN.woff2",
+    "src": "node_modules/@fontsource-variable/newsreader/files/newsreader-vietnamese-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/public-sans/files/public-sans-latin-ext-wght-normal.woff2": {
+    "file": "public-sans-latin-ext-wght-normal-MQgHevqp.woff2",
+    "src": "node_modules/@fontsource-variable/public-sans/files/public-sans-latin-ext-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/public-sans/files/public-sans-latin-wght-normal.woff2": {
+    "file": "public-sans-latin-wght-normal-DdeTHZLK.woff2",
+    "src": "node_modules/@fontsource-variable/public-sans/files/public-sans-latin-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/public-sans/files/public-sans-vietnamese-wght-normal.woff2": {
+    "file": "public-sans-vietnamese-wght-normal-CtlIRbEm.woff2",
+    "src": "node_modules/@fontsource-variable/public-sans/files/public-sans-vietnamese-wght-normal.woff2"
+  },
+  "resources/js/admin.js": {
+    "file": "admin-wBTEnVG1.js",
+    "name": "admin",
+    "src": "resources/js/admin.js",
+    "isEntry": true,
+    "imports": [
+      "_htmx.esm-CrZenodz.js"
+    ],
+    "dynamicImports": [
+      "resources/js/editor-core.js"
+    ],
+    "css": [
+      "admin-DY56s2ix.css"
+    ]
+  },
+  "resources/js/editor-core.js": {
+    "file": "editor-core-Brq6tExB.js",
+    "name": "editor-core",
+    "src": "resources/js/editor-core.js",
+    "isDynamicEntry": true
+  },
+  "resources/js/public.js": {
+    "file": "public-DvqgMg-e.js",
+    "name": "public",
+    "src": "resources/js/public.js",
+    "isEntry": true,
+    "imports": [
+      "_htmx.esm-CrZenodz.js"
+    ],
+    "css": [
+      "public-DQuRcWlx.css"
+    ],
+    "assets": [
+      "newsreader-vietnamese-wght-normal-Czsa-EzN.woff2",
+      "newsreader-latin-ext-wght-normal-C-3rgBeH.woff2",
+      "newsreader-latin-wght-normal-CCVVNp6i.woff2"
+    ]
+  }
+}
