@@ -1,5 +1,5 @@
 -- Data demo, dibuat otomatis oleh bin/package-demo.php
--- Dibuat: 2026-11-24 07:27:08
+-- Dibuat: 2026-11-24 07:39:04
 -- Impor SETELAH install.sql dan admin.sql, ke database yang belum berisi konten.
 
 SET NAMES utf8mb4;

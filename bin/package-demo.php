@@ -132,7 +132,8 @@ try {
     [$code, $err] = run(
         ['zip', '-rq', $out . '/uploads.zip', '.', '-x', '.htaccess', '-x', '*/.htaccess', '-x', '.gitkeep', '-x', '*/.gitkeep'],
         $uploads,
-        []
+        [],
+        null
     );
 
     if ($code !== 0 && $code !== 12) { // 12 = tidak ada file untuk dimasukkan
